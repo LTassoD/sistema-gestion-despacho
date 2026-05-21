@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 env:
-  DOCKER_USER: TU_USUARIO_DOCKER
+  DOCKER_USER: luistasso
   IMAGE_NAME: tienda-frontend-despacho
   EC2_INSTANCE: i-xxxxxxxxxxxxx
 

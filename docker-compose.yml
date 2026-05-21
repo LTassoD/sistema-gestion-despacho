@@ -1,0 +1,96 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8
+    container_name: tienda-mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: admin123
+      MYSQL_DATABASE: tienda_perritos
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    networks:
+      - backend_network
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+
+  backend-ventas:
+    build:
+      context: ./back-Ventas_SpringBoot/Springboot-API-REST
+      dockerfile: Dockerfile
+    container_name: tienda-backend-ventas
+    restart: unless-stopped
+    environment:
+      DB_ENDPOINT: mysql
+      DB_PORT: "3306"
+      DB_NAME: tienda_perritos
+      DB_USERNAME: root
+      DB_PASSWORD: admin123
+    ports:
+      - "8080:8080"
+    depends_on:
+      mysql:
+        condition: service_healthy
+    volumes:
+      - backend_logs:/app/logs
+    networks:
+      - backend_network
+      - frontend_network
+
+  backend-despachos:
+    build:
+      context: ./back-Despachos_SpringBoot/Springboot-API-REST-DESPACHO
+      dockerfile: Dockerfile
+    container_name: tienda-backend-despachos
+    restart: unless-stopped
+    environment:
+      DB_ENDPOINT: mysql
+      DB_PORT: "3306"
+      DB_NAME: tienda_perritos
+      DB_USERNAME: root
+      DB_PASSWORD: admin123
+    ports:
+      - "8081:8081"
+    depends_on:
+      mysql:
+        condition: service_healthy
+    volumes:
+      - backend_logs:/app/logs
+    networks:
+      - backend_network
+      - frontend_network
+
+  frontend:
+    build:
+      context: ./front_despacho
+      dockerfile: Dockerfile
+    container_name: tienda-frontend
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    depends_on:
+      - backend-ventas
+      - backend-despachos
+    networks:
+      - frontend_network
+
+networks:
+  backend_network:
+    driver: bridge
+    internal: true
+  frontend_network:
+    driver: bridge
+
+volumes:
+  mysql_data:
+    driver: local
+    name: tienda_mysql_data
+  backend_logs:
+    driver: local
+    name: tienda_backend_logs

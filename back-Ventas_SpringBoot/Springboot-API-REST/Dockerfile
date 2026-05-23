@@ -30,7 +30,7 @@ EXPOSE 8080
 
 ENV DB_ENDPOINT=localhost \
     DB_PORT=3306 \
-    DB_NAME=tienda_perritos \
+    DB_NAME=despachos_db \
     DB_USERNAME=root \
     DB_PASSWORD=admin123
 

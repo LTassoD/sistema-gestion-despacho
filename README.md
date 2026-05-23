@@ -205,7 +205,7 @@ docker compose down
 |----------|-------------|-------------------|
 | `DB_ENDPOINT` | Host de MySQL | `localhost` |
 | `DB_PORT` | Puerto de MySQL | `3306` |
-| `DB_NAME` | Nombre de base de datos | `tienda_perritos` |
+| `DB_NAME` | Nombre de base de datos | `despachos_db` |
 | `DB_USERNAME` | Usuario MySQL | `root` |
 | `DB_PASSWORD` | Contraseña MySQL | `admin123` |
 

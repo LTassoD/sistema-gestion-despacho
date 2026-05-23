@@ -7,7 +7,7 @@ services:
     restart: unless-stopped
     environment:
       MYSQL_ROOT_PASSWORD: admin123
-      MYSQL_DATABASE: tienda_perritos
+      MYSQL_DATABASE: despachos_db
     ports:
       - "3306:3306"
     volumes:
@@ -29,7 +29,7 @@ services:
     environment:
       DB_ENDPOINT: mysql
       DB_PORT: "3306"
-      DB_NAME: tienda_perritos
+      DB_NAME: despachos_db
       DB_USERNAME: root
       DB_PASSWORD: admin123
     ports:
@@ -52,7 +52,7 @@ services:
     environment:
       DB_ENDPOINT: mysql
       DB_PORT: "3306"
-      DB_NAME: tienda_perritos
+      DB_NAME: despachos_db
       DB_USERNAME: root
       DB_PASSWORD: admin123
     ports:

@@ -54,7 +54,7 @@ jobs:
             docker run -d --name backend-ventas -p 8080:8080 \
               -e DB_ENDPOINT=${{ env.DB_HOST }} \
               -e DB_PORT=3306 \
-              -e DB_NAME=tienda_perritos \
+              -e DB_NAME=despachos_db \
               -e DB_USERNAME=root \
               -e DB_PASSWORD=admin123 \
               --restart unless-stopped \

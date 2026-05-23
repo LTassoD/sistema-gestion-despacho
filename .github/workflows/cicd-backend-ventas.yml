@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 env:
-  DOCKER_USER: luistasso
+  DOCKER_USER: ltassod
   IMAGE_NAME: tienda-backend-ventas
   EC2_INSTANCE: i-xxxxxxxxxxxxx
   DB_HOST: ip-privada-ec2-db

@@ -10,7 +10,7 @@ on:
 env:
   DOCKER_USER: ltassod
   IMAGE_NAME: tienda-frontend-despacho
-  EC2_INSTANCE: i-xxxxxxxxxxxxx
+  EC2_INSTANCE: i-0da6e30d41ce4b9d1
 
 jobs:
   build-and-deploy:

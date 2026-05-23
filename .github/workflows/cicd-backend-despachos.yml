@@ -10,8 +10,8 @@ on:
 env:
   DOCKER_USER: ltassod
   IMAGE_NAME: tienda-backend-despachos
-  EC2_INSTANCE: i-xxxxxxxxxxxxx
-  DB_HOST: ip-privada-ec2-db
+  EC2_INSTANCE: i-04cf5cdaf3806cb64
+  DB_HOST: 10.0.3.17
 
 jobs:
   build-and-deploy:

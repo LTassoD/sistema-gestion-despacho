@@ -32,6 +32,8 @@ services:
       DB_NAME: despachos_db
       DB_USERNAME: root
       DB_PASSWORD: admin123
+      # SOLUCIÓN: Sobrescribimos la URL de conexión para permitir la llave pública
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/despachos_db?allowPublicKeyRetrieval=true&useSSL=false
     ports:
       - "8080:8080"
     depends_on:
@@ -55,6 +57,8 @@ services:
       DB_NAME: despachos_db
       DB_USERNAME: root
       DB_PASSWORD: admin123
+      # SOLUCIÓN: Sobrescribimos la URL de conexión para permitir la llave pública
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/despachos_db?allowPublicKeyRetrieval=true&useSSL=false
     ports:
       - "8081:8081"
     depends_on:

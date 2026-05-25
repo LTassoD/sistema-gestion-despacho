@@ -10,8 +10,8 @@ on:
 env:
   DOCKER_USER: ltassod
   IMAGE_NAME: tienda-backend-ventas
-  EC2_INSTANCE: i-04cf5cdaf3806cb64
-  DB_HOST: 10.0.3.17
+  EC2_INSTANCE: i-0f3df9db6f771d650
+  DB_HOST: 10.0.3.174
 
 jobs:
   build-and-deploy:

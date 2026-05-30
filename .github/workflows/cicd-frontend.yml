@@ -5,6 +5,7 @@ on:
     branches: [ deploy ]
     paths:
       - 'front_despacho/**'
+      - '.github/workflows/**' # <-- Esto para que reaccione si modificas el pipeline
   workflow_dispatch:
 
 env:

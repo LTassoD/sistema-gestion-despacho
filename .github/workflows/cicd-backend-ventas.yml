@@ -5,6 +5,7 @@ on:
     branches: [ deploy ]
     paths:
       - 'back-Ventas_SpringBoot/**'
+      - '.github/workflows/**' # <-- Esto para que reaccione si modificas el pipeline
   workflow_dispatch:
 
 env:

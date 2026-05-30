@@ -3,9 +3,6 @@ name: CI/CD - Frontend Despacho
 on:
   push:
     branches: [ deploy ]
-    paths:
-      - 'front_despacho/**'
-      - '.github/workflows/**' # <-- Esto para que reaccione si modificas el pipeline
   workflow_dispatch:
 
 env:
@@ -51,6 +48,7 @@ jobs:
             docker pull ${{ env.DOCKER_USER }}/${{ env.IMAGE_NAME }}:latest
             docker stop frontend || true
             docker rm frontend || true
+            docker run -d --name frontend -p 80:80 \
               --add-host backend-ventas:10.0.2.7 \
               --add-host backend-despachos:10.0.2.7 \
               --restart unless-stopped \

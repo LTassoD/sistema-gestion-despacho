@@ -1,4 +1,28 @@
-# Sistema de Gestión de Despachos - Innovatech Chile
+# Sistema de Gestión de Despachos
+
+Plataforma web de **gestión de ventas y despachos** para una empresa de comercio. Arquitectura de **microservicios** (Spring Boot) con frontend en React, contenedorizada con Docker y desplegada en **AWS EC2** con pipeline **CI/CD** en GitHub Actions.
+
+> Proyecto fullstack de portafolio (DevOps). Ejecución parcial de semestre — ISY1101 Introducción a Herramientas DevOps.
+
+## Características
+
+- **Frontend SPA** en React + Vite + Tailwind, servido por Nginx como proxy reverso.
+- **Dos microservicios independientes** (`ventas` y `despachos`) en Spring Boot, cada uno con su propio API REST y Dockerfile multi-stage.
+- **Base de datos** MySQL 8 con red interna aislada del frontend.
+- **CI/CD** con GitHub Actions: build + push a Docker Hub + deploy automático a EC2 vía AWS SSM.
+- **Infraestructura como código** con CloudFormation (VPC con subred pública, de aplicación y de datos).
+- **Buenas prácticas**: imágenes sin usuario root, healthchecks, named volumes para persistencia, variables de entorno para configuración.
+
+## Stack tecnológico
+
+| Capa | Tecnología |
+|------|-----------|
+| Frontend | React, Vite, Tailwind CSS, Nginx |
+| Backend | Java 17, Spring Boot (API REST) |
+| Base de datos | MySQL 8 |
+| Contenedores | Docker, Docker Compose, Dockerfiles multi-stage |
+| CI/CD | GitHub Actions (Docker Hub + AWS SSM) |
+| Cloud | AWS EC2, VPC, CloudFormation |
 
 ## Arquitectura del Proyecto
 
@@ -217,6 +241,6 @@ docker compose down
 - Cuenta AWS Academy
 - Git
 
-## 7. Autores
+## Autor
 
-- Evaluación Parcial N°2 - ISY1101 Introducción a Herramientas DevOps
+[Luis Tasso Delgado](https://github.com/LTassoD) — Proyecto de portafolio de desarrollo fullstack y DevOps.
